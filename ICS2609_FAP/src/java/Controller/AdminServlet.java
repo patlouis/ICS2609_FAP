@@ -103,12 +103,12 @@ public class AdminServlet extends HttpServlet {
                         dispatcher.forward(request, response);
                     } else {
                         // INCORRECT ERROR
-                        dispatcher = request.getRequestDispatcher("incorrect.jsp");
+                        dispatcher = request.getRequestDispatcher("Error Pages/incorrect.jsp");
                         dispatcher.forward(request, response);
                     }
                 } else {
                     // ERROR
-                    dispatcher = request.getRequestDispatcher("error.jsp");
+                    dispatcher = request.getRequestDispatcher("Error Pages/incorrect.jsp");
                     dispatcher.forward(request, response);
                     request.setAttribute("status", "failed");
                 }
@@ -116,7 +116,7 @@ public class AdminServlet extends HttpServlet {
 
           // SQL EXCEPTION ERROR
         } catch (SQLException sqle) {
-            response.sendRedirect("maxattempt.jsp");
+            response.sendRedirect("Error Pages/maxattempt.jsp");
         }
     }
 

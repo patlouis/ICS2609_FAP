@@ -167,7 +167,8 @@ public class AdminReceipt extends HttpServlet {
 
             // Calculate the total number of pages in the document
             int totalPage = (int) Math.ceil(writer.getVerticalPosition(false) / (document.getPageSize().getHeight() - document.bottomMargin() - document.topMargin()));
-            //totalPage++;
+            totalPage++;
+            totalPage++;
 // Create a Phrase with the current page number and total number of pages
             Phrase page = new Phrase(String.format("Page %d of %d", writer.getPageNumber(), totalPage), FooterFont);
             // Create a Paragraph with the footer text and page number
