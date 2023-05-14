@@ -33,7 +33,7 @@
                     Your authorization failed. Please try refreshing the page and fill in the correct login details.
                 </p>
                 <button>
-                    <a href="LandingJSP.jsp">Back to homepage</a>
+                    <a href="../landing.jsp">Back to homepage</a>
                 </button>
             </div>
         </main>

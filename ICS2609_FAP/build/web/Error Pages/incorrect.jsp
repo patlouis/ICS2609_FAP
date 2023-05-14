@@ -76,7 +76,7 @@
 
             <!-- Footer -->
             <footer id="footer">
-                Submitted by Patrick Louis T. Rivera, for ICS2609 Machine Problem 4.
+                Copyright 2023 © All rights reserved.
             </footer>
         </div>
 

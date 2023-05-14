@@ -34,7 +34,7 @@
                     unavailable.
                 </p>
                 <button>
-                    <a href="LandingJSP.jsp">Back to homepage</a>
+                    <a href="../landing.jsp">Back to homepage</a>
                 </button>
             </div>
         </main>

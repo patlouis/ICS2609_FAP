@@ -121,7 +121,7 @@
                 </form>
 
                 <div align="center">
-                    <h5>Return to <a href="landing.jsp">Landing page</a></h5>
+                    <h5>Return to <a href="landing.jsp">Homepage</a></h5>
                 </div>
 
             </section>
