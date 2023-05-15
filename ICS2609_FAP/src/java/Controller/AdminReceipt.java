@@ -1,4 +1,3 @@
-
 package Controller;
 
 import com.itextpdf.text.Chunk;
@@ -14,7 +13,6 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,13 +26,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author kim
- */
 public class AdminReceipt extends HttpServlet {
 
-     Connection conn;
+    Connection conn;
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -70,21 +64,30 @@ public class AdminReceipt extends HttpServlet {
                     + nfe.getMessage());
         }
     }
-    private static final String SELECT_QUERY = "SELECT EMAIL, USERROLE FROM USERS";
+    private static final String SELECT_QUERY = "SELECT EMAIL, USERROLE, DATE FROM USERS";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
 
             if (conn != null) {
-                // System.out.println("got in admin report");
                 String username = request.getParameter("username");
+
+                Date date = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a");
+                String formattedDate = formatter.format(date);
+                PreparedStatement prep = conn.prepareStatement("UPDATE USERS SET DATE=? WHERE EMAIL=?");
+                prep.setString(1, formattedDate);
+                prep.setString(2, username);
+                prep.executeUpdate();
+
                 PreparedStatement ps = conn.prepareStatement(SELECT_QUERY);
                 ResultSet rs = ps.executeQuery();
 
                 // Set the content type and attachment header.
                 response.setContentType("application/pdf");
-                response.setHeader("Content-Disposition", "attachment; filename=Admin Report.pdf");
+                response.setHeader("Content-Disposition", "attachment; filename=Admin Receipt.pdf");
 
                 // Create a new document and write some text to it.
                 Document document = new Document();
@@ -112,22 +115,29 @@ public class AdminReceipt extends HttpServlet {
                 usernameHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
                 PdfPCell roleHeader = new PdfPCell(new Phrase("Role", headerFont));
                 roleHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
+                PdfPCell dateHeader = new PdfPCell(new Phrase("Date", headerFont));
+                dateHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
 
-                PdfPTable table = new PdfPTable(2);
+                PdfPTable table = new PdfPTable(3);
                 table.addCell(usernameHeader);
                 table.addCell(roleHeader);
+                table.addCell(dateHeader);
 
                 while (rs.next()) {
                     String user_name = rs.getString("EMAIL");
                     String user_role = rs.getString("USERROLE");
+                    String user_date = rs.getString("DATE");
 
                     PdfPCell usernameCell = new PdfPCell(new Phrase(user_name));
                     usernameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                     PdfPCell roleCell = new PdfPCell(new Phrase(user_role));
                     roleCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    PdfPCell dateCell = new PdfPCell(new Phrase(user_date));
+                    dateCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
                     table.addCell(usernameCell);
                     table.addCell(roleCell);
+                    table.addCell(dateCell);
                 }
 
                 document.add(table);
@@ -167,6 +177,7 @@ public class AdminReceipt extends HttpServlet {
 
             // Calculate the total number of pages in the document
             int totalPage = (int) Math.ceil(writer.getVerticalPosition(false) / (document.getPageSize().getHeight() - document.bottomMargin() - document.topMargin()));
+            totalPage++;
             totalPage++;
             totalPage++;
 // Create a Phrase with the current page number and total number of pages
