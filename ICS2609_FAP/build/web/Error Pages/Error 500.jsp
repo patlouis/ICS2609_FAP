@@ -10,6 +10,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
             />
         <link href="../css/styles2.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/styles2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="Holder">

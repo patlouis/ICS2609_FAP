@@ -42,11 +42,11 @@ public class AdminServlet extends HttpServlet {
             // CONNECTION
             conn = DriverManager.getConnection(url.toString(), username, password);
 
-          // SQL EXCEPTION ERROR
+            // SQL EXCEPTION ERROR
         } catch (SQLException sqle) {
             System.out.println("SQLException error occured - "
                     + sqle.getMessage());
-          // CLASSNOTFOUND EXCEPTION ERROR
+            // CLASSNOTFOUND EXCEPTION ERROR
         } catch (ClassNotFoundException nfe) {
             System.out.println("ClassNotFoundException error occured - "
                     + nfe.getMessage());
@@ -103,20 +103,18 @@ public class AdminServlet extends HttpServlet {
                         dispatcher.forward(request, response);
                     } else {
                         // INCORRECT ERROR
-                        dispatcher = request.getRequestDispatcher("Error Pages/incorrect.jsp");
-                        dispatcher.forward(request, response);
+                        response.sendRedirect("Error Pages/incorrect.jsp");
                     }
                 } else {
                     // ERROR
-                    dispatcher = request.getRequestDispatcher("Error Pages/incorrect.jsp");
-                    dispatcher.forward(request, response);
+                    response.sendRedirect("Error Pages/incorrect.jsp");
                     request.setAttribute("status", "failed");
                 }
             }
 
-          // SQL EXCEPTION ERROR
+            // SQL EXCEPTION ERROR
         } catch (SQLException sqle) {
-            response.sendRedirect("Error Pages/maxattempt.jsp");
+            response.sendRedirect("Error Pages/sqlexception.jsp");
         }
     }
 

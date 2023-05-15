@@ -152,7 +152,7 @@
     </servlet-mapping>
     
     <!-- ADMIN RECEIPT -->
-        <servlet>
+    <servlet>
         <servlet-name>AdminReceipt</servlet-name>
         <servlet-class>Controller.AdminReceipt</servlet-class>
         <init-param>
@@ -267,19 +267,28 @@
         <welcome-file>menu.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
+        <!-- AUTHORIZATION FAILED ERROR -->
         <error-code>401</error-code>
         <location>/Error Pages/Error 401.jsp</location>
     </error-page>
     <error-page>
+        <!-- PAGE NOT FOUND ERROR -->
         <error-code>404</error-code>
         <location>/Error Pages/Error 404.jsp</location>
     </error-page>
     <error-page>
+        <!-- INTERAL SERVER ERROR -->
         <error-code>500</error-code>
         <location>/Error Pages/Error 500.jsp</location>
     </error-page>
     <error-page>
+        <!-- SERVICE UNAVAILABLE ERROR -->
         <error-code>503</error-code>
         <location>/Error Pages/Error 503.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- SQL EXCEPTION -->
+        <exception-type>java.sql.SQLException</exception-type>
+        <location>/Error Pages/sqlexception.jsp</location>
     </error-page>
 </web-app>
