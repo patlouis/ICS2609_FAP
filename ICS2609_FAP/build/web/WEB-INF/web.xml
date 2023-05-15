@@ -201,6 +201,46 @@
     <servlet>
         <servlet-name>CustomerReceipt</servlet-name>
         <servlet-class>Controller.CustomerReceipt</servlet-class>
+        <init-param>
+            <param-name>jdbcClassName</param-name>
+            <param-value>org.apache.derby.jdbc.ClientDriver</param-value>
+            <!-- org.apache.derby.jdbc.ClientDriver -->
+            <!-- com.mysql.cj.jdbc.Driver -->
+        </init-param>
+        <init-param>
+            <param-name>dbUserName</param-name>
+            <param-value>app</param-value>
+            <!-- app -->
+            <!-- root -->
+        </init-param>
+        <init-param>
+            <param-name>dbPassword</param-name>
+            <param-value>app</param-value>
+            <!-- app -->
+            <!-- root -->
+        </init-param>
+        <init-param>
+            <param-name>jdbcDriverURL</param-name>
+            <param-value>jdbc:derby</param-value>
+            <!-- jdbc:derby -->
+            <!-- jdbc:mysql -->
+        </init-param>
+        <init-param>
+            <param-name>dbHostName</param-name>
+            <param-value>localhost</param-value>
+        </init-param>
+        <init-param>
+            <param-name>dbPort</param-name>
+            <param-value>1527</param-value>
+            <!-- 1527 -->
+            <!-- 3306 -->
+        </init-param>
+        <init-param>
+            <param-name>databaseName</param-name>
+            <param-value>UserLoginDB</param-value>
+            <!-- LoginDB -->
+            <!-- logindb?useSSL=false -->
+        </init-param>
     </servlet>
     
     <!-- ENCRYPTION KEY -->
