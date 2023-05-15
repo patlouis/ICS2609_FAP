@@ -3,39 +3,34 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- meta tags -->
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <!-- title -->
         <title>401 - Authorization Required</title>
-
-        <link href="../css/styles1.css" rel="stylesheet" type="text/css"/>
-
-        <!-- google font  -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Space+Mono:wght@400;700&display=swap"
             rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
             />
+        <link href="../css/styles2.css" rel="stylesheet" type="text/css"/>
+        <link href="./css/styles2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header>
-            <h1>401 Error</h1>
-        </header>
-        <main>
-            <img src="../Images/Scarecrow.png" alt="Scarecrow Image"/>
-            <div class="hero">
-                <h2>Authorization Required</h2>
-                <p>
-                    Your authorization failed. Please try refreshing the page and fill in the correct login details.
-                </p>
-                <button>
-                    <a href="../landing.jsp">Back to homepage</a>
-                </button>
+        <div class="Holder">
+            <div class="Loader">
+                Server 001
+                <div class="Loader__light"></div>
+                <div class="Loader__drives">
+                    <div class="Loader__drive"></div>
+                    <div class="Loader__drive"></div>
+                    <div class="Loader__drive"></div>
+                    <div class="Loader__drive"></div>
+                    <div class="Loader__drive"></div>
+                    <div class="Loader__drive"></div>
+                </div>
             </div>
-        </main>
+            <h1 class="text-center">401 Error - Authorization Required</h1>
+            <p class="Title">
+                Your authorization failed. Please try refreshing the page<br />
+                and fill in the correct login details.
+            </p>
+        </div>
     </body>
 </html>

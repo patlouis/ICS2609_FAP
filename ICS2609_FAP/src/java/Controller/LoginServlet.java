@@ -144,7 +144,7 @@ public class LoginServlet extends HttpServlet {
 
             // SQL EXCEPTION ERROR
         } catch (SQLException sqle) {
-            response.sendRedirect("Error Pages/Error 503.jsp");
+            response.sendRedirect("Error Pages/sqlexception.jsp");
         }
     }
 

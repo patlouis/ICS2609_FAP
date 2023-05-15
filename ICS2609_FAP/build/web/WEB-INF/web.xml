@@ -152,7 +152,7 @@
     </servlet-mapping>
     
     <!-- ADMIN RECEIPT -->
-        <servlet>
+    <servlet>
         <servlet-name>AdminReceipt</servlet-name>
         <servlet-class>Controller.AdminReceipt</servlet-class>
         <init-param>

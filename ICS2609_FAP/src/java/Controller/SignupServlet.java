@@ -99,20 +99,18 @@ public class SignupServlet extends HttpServlet {
                         dispatcher.forward(request, response);
                     } else {
                         // INCORRECT ERROR
-                        dispatcher = request.getRequestDispatcher("/Error Pages/incorrect.jsp");
-                        dispatcher.forward(request, response);
+                        response.sendRedirect("Error Pages/incorrect.jsp");
                     }
                 } else {
                     // ERROR
-                    dispatcher = request.getRequestDispatcher("/Error Pages/incorrect.jsp");
-                    dispatcher.forward(request, response);
+                    response.sendRedirect("Error Pages/incorrect.jsp");
                     request.setAttribute("status", "failed");
                 }
             }
-
+            
           // SQL EXCEPTION ERROR
         } catch (SQLException sqle) {
-            response.sendRedirect("Error Pages/maxattempt.jsp");
+            response.sendRedirect("Error Pages/sqlexception.jsp");
         }
     }
 
