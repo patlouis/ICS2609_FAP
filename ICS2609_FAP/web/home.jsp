@@ -24,6 +24,7 @@
         <meta charset="utf-8" />
         <meta property="twitter:card" content="summary_large_image" />
 
+        <link rel="icon" href="Images/Website Logo.png" type="image/x-icon">
         <style data-tag="reset-style-sheet">
             html {
                 line-height: 1.15;
@@ -233,6 +234,12 @@
                                         </span>
                                     </span>
                                 </div>
+                            </div>
+                            
+                            <br>
+                            
+                            <div align="center">
+                                <img src="Images/Website Logo.png" width="320" height="320">
                             </div>
                         </div>
                     </section>

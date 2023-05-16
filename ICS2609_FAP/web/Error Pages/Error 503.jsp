@@ -4,6 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <link rel="icon" href="../Images/Website Logo.png" type="image/x-icon">
         <title>503 - Service Unavailable</title>
         <link
             rel="stylesheet"
