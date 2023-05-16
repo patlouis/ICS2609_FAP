@@ -4,6 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <link rel="icon" href="../Images/Website Logo.png" type="image/x-icon">
         <title>401 - Authorization Required</title>
         <link
             rel="stylesheet"
