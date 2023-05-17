@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%-- Destroys the session object --%>
 <%
     session.removeAttribute("username");
     session.invalidate();
