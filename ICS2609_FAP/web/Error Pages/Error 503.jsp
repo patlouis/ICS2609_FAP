@@ -4,12 +4,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <!-- Website Icon -->
         <link rel="icon" href="../Images/Website Logo.png" type="image/x-icon">
+        <!-- Document Title -->
         <title>503 - Service Unavailable</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
             />
+        <!-- Styles -->
         <link href="../css/styles2.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>

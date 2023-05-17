@@ -74,6 +74,7 @@ public class AdminReceipt extends HttpServlet {
             if (conn != null) {
                 String username = request.getParameter("username");
 
+                // Updates the date and time admin receipt is generated into user record
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a");
                 String formattedDate = formatter.format(date);
@@ -82,6 +83,7 @@ public class AdminReceipt extends HttpServlet {
                 prep.setString(2, username);
                 prep.executeUpdate();
 
+                // PreparedStatement
                 PreparedStatement ps = conn.prepareStatement(SELECT_QUERY);
                 ResultSet rs = ps.executeQuery();
 
@@ -89,7 +91,7 @@ public class AdminReceipt extends HttpServlet {
                 response.setContentType("application/pdf");
                 response.setHeader("Content-Disposition", "attachment; filename=Admin Receipt.pdf");
 
-                // Create a new document and write some text to it.
+                // Create a new document
                 Document document = new Document();
                 document.setPageSize(PageSize.LETTER.rotate());
                 PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
@@ -98,6 +100,7 @@ public class AdminReceipt extends HttpServlet {
                 writer.setPageCount(0);
 
                 document.open();
+                
                 // TITLE
                 Font font = new Font(Font.FontFamily.HELVETICA, 24, Font.BOLD);
                 Paragraph admin_report = new Paragraph("Admin Receipt", font);
@@ -110,12 +113,13 @@ public class AdminReceipt extends HttpServlet {
 
                 // DATABASE RECORD
                 Font headerFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+                
                 // TABLE HEADER
                 PdfPCell usernameHeader = new PdfPCell(new Phrase("Username", headerFont));
                 usernameHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
                 PdfPCell roleHeader = new PdfPCell(new Phrase("Role", headerFont));
                 roleHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
-                PdfPCell dateHeader = new PdfPCell(new Phrase("Date", headerFont));
+                PdfPCell dateHeader = new PdfPCell(new Phrase("Date and Time", headerFont));
                 dateHeader.setHorizontalAlignment(Element.ALIGN_CENTER);
 
                 PdfPTable table = new PdfPTable(3);
@@ -124,6 +128,7 @@ public class AdminReceipt extends HttpServlet {
                 table.addCell(dateHeader);
 
                 while (rs.next()) {
+                    // Retreive attributes from database
                     String user_name = rs.getString("EMAIL");
                     String user_role = rs.getString("USERROLE");
                     String user_date = rs.getString("DATE");

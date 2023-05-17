@@ -29,6 +29,7 @@ public class AddToCart extends HttpServlet {
             cartProduct.setPrice(price);
             cartProduct.setQuantity(1);
 
+            // Creates session for cart
             HttpSession session = request.getSession();
             ArrayList<Cart> sessionCart = (ArrayList<Cart>) session.getAttribute("cart-list");
 
