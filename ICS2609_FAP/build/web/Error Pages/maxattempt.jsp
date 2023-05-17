@@ -2,6 +2,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%-- Destroys the session object --%>
 <%
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     response.setHeader("Pragma", "no-cache");
