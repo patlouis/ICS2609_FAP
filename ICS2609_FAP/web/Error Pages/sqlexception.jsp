@@ -16,10 +16,11 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Website Icon -->
         <link rel="icon" href="../Images/Website Logo.png" type="image/x-icon">
 
         <!-- Document Title -->
-        <title>SQL Exception Error</title>
+        <title>SQL Exception</title>
 
         <!-- Styles -->
         <link href="../css/styles.css" rel="stylesheet" type="text/css"/>
@@ -55,7 +56,7 @@
 
     <!-- Body -->
     <body>
-        
+
         <br />&nbsp;<br /><br />&nbsp;<br /><br />&nbsp;<br />
 
         <div class="container">
@@ -64,11 +65,11 @@
             <section id="contact">
                 <!-- Section title -->
                 <div align="center">
-                    <h1>SQL Exception Error</h1>
+                    <h1>SQL Exception</h1>
                 </div>
 
                 <div align="center">
-                <a href="../login.jsp">Return to login page</a>
+                    <a href="../login.jsp">Return to login page</a>
                 </div>
             </section>
 

@@ -106,7 +106,7 @@ public class AdminServlet extends HttpServlet {
                         response.sendRedirect("Error Pages/incorrect.jsp");
                     }
                 } else {
-                    // ERROR
+                    // INCORRECT ERROR
                     response.sendRedirect("Error Pages/incorrect.jsp");
                     request.setAttribute("status", "failed");
                 }

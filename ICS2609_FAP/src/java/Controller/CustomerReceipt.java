@@ -83,6 +83,7 @@ public class CustomerReceipt extends HttpServlet {
 
             if (conn != null) {
 
+                // Updates the date and time costumer receipt is generated into user record
                 Date date = new Date();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy, hh:mm:ss a");
                 String formattedDate = formatter.format(date);
@@ -146,11 +147,6 @@ public class CustomerReceipt extends HttpServlet {
                 document.close();
 
             }
-
-            //Optional: if you can't find the pdf
-            //File outputFile = new File("Fry Me to the Moon Receipt.pdf");
-            //String absolutePath = outputFile.getAbsolutePath();
-            //System.out.println("Generated PDF file path: " + absolutePath);
         } catch (Exception e) {
             e.printStackTrace();
         }
